@@ -10,6 +10,7 @@ public class Triangle extends Shape {
     private int y3;
 
     private double square;
+    private double perimeter;
 
     public Triangle(int x1, int y1, int x2, int y2, int x3, int y3) {
 
@@ -24,14 +25,7 @@ public class Triangle extends Shape {
     @Override
     public double calcPerimeter() {
 
-        double ab = Math.sqrt(((x1-x2)*(x1-x2)) + ((y1-y2)*(y1-y2)));
-        double bc = Math.sqrt(((x2-x3)*(x2-x3)) + ((y2-y3)*(y2-y3)));
-        double ca = Math.sqrt(((x3-x1)*(x3-x1)) + ((y3-y1)*(y3-y1)));
-
-        double perimeter = ab + bc + ca;
-
-        double p = perimeter / 2;
-        square = Math.sqrt((p*(p-ab)*(p-bc)*(p-ca)));
+        calculation();
 
         return perimeter;
     }
@@ -39,8 +33,20 @@ public class Triangle extends Shape {
     @Override
     public double calcSquare() {
 
-        calcPerimeter();
+        calculation();
 
         return square;
+    }
+
+    private void calculation() {
+
+        double ab = Math.sqrt(((x1-x2)*(x1-x2)) + ((y1-y2)*(y1-y2)));
+        double bc = Math.sqrt(((x2-x3)*(x2-x3)) + ((y2-y3)*(y2-y3)));
+        double ca = Math.sqrt(((x3-x1)*(x3-x1)) + ((y3-y1)*(y3-y1)));
+
+        perimeter = ab + bc + ca;
+
+        double p = perimeter / 2;
+        square = Math.sqrt((p*(p-ab)*(p-bc)*(p-ca)));
     }
 }
