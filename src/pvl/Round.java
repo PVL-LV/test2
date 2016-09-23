@@ -1,3 +1,4 @@
+package pvl;
 
 public class Round extends Shape {
 
@@ -12,7 +13,7 @@ public class Round extends Shape {
     @Override
     public double calcPerimeter() {
 
-        double perimeter = 4 * (((Math.PI * r1 *r2 + (r1 -r2)) / (r1 + r2)));
+        double perimeter = 4 * (((Math.PI * r1 * r2 + (r1 - r2)) / (r1 + r2)));
         return perimeter;
     }
 
